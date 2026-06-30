@@ -16,7 +16,6 @@ const Cart = () => {
       <p className="text-xs text-slate-400 mb-8">Manage the items you've added to your boutique bag</p>
 
       {items.length === 0 ? (
-        /* Pantalla de Carrito Vacío */
         <div className="text-center py-16 bg-white border border-slate-100 rounded-2xl shadow-xs">
           <div className="text-4xl mb-4">🛒</div>
           <h2 className="text-slate-800 font-bold text-sm mb-1">Your cart is completely empty</h2>

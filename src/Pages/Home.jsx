@@ -89,29 +89,33 @@ const Home = ({ searchTerm = '' }) => {
         </div>
 
         {!category && (
-          <div className="mt-12 bg-slate-50 rounded-2xl p-4 md:p-6 border border-slate-100">
-            <h3 className="text-xs font-black text-slate-800 tracking-wide mb-4 uppercase text-center md:text-left">
-              Shop by Category
-            </h3>
-            <div className="flex items-center gap-6 overflow-x-auto no-scrollbar pb-1">
-              {[
-                { name: 'Women', url: "/category/women's clothing", icon: '👗' },
-                { name: 'Men', url: "/category/men's clothing", icon: '👔' },
-                { name: 'Jewelry', url: '/category/jewelry', icon: '✨' },
-                { name: 'Electronics', url: '/category/electronics', icon: '💻' },
-              ].map((cat) => (
-                <Link to={cat.url} key={cat.name} className="flex flex-col items-center gap-2 min-w-16 group cursor-pointer mx-auto md:mx-0">
-                  <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-slate-200 shadow-xs group-hover:scale-105 transition-transform text-lg">
-                    {cat.icon}
-                  </div>
-                  <span className="text-[10px] font-bold text-slate-600 tracking-tight group-hover:text-blue-600 transition-colors">
-                    {cat.name}
-                  </span>
-                </Link>
-              ))}
-            </div>
+  <div className="mt-12 bg-slate-50 rounded-2xl p-4 md:p-6 border border-slate-100 md:hidden">
+    <h3 className="text-xs font-black text-slate-800 tracking-wide mb-4 uppercase text-center md:text-left">
+      Shop by Category
+    </h3>
+    <div className="flex items-center gap-6 overflow-x-auto no-scrollbar pb-1">
+      {[
+        { name: 'Women', url: "/category/women's clothing", icon: '👗' },
+        { name: 'Men', url: "/category/men's clothing", icon: '👔' },
+        { name: 'Jewelery', url: '/category/jewelery', icon: '✨' },
+        { name: 'Electronics', url: '/category/electronics', icon: '💻' },
+      ].map((cat) => (
+        <Link 
+          to={cat.url} 
+          key={cat.name} 
+          className="flex flex-col items-center gap-2 min-w-16 group cursor-pointer mx-auto md:mx-0"
+        >
+          <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center border border-slate-200 shadow-xs group-hover:scale-105 transition-transform text-lg">
+            {cat.icon}
           </div>
-        )}
+          <span className="text-[10px] font-bold text-slate-600 tracking-tight group-hover:text-blue-600 transition-colors">
+            {cat.name}
+          </span>
+        </Link>
+      ))}
+    </div>
+  </div>
+)}
         {visibleCount < filteredProducts.length && (
           <div className="mt-12 flex flex-col items-center justify-center gap-2">
             <button

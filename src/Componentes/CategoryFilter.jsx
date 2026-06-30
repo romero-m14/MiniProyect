@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const CategoryFilter = () => {
   const categories = [
     { id: 'electronics', name: 'Electronics' },
-    { id: 'jewelry', name: 'Jewelry' },
+    { id: 'jewelery', name: 'Jewelry' },
     { id: "men's clothing", name: "Men's Clothing" },
     { id: "women's clothing", name: "Women's Clothing" }
   ];

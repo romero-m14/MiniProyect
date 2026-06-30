@@ -1,28 +1,31 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useFetchCategories = () => {
-  const [categories, setCategories] = useState([]);
+const useFetchCategoryProducts = (categoryName) => {
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchCats = async () => {
+    if (!categoryName) return;
+
+    const fetchProducts = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('https://fakestoreapi.com/products/categories');
-        setCategories(response.data);
+        const url = `https://fakestoreapi.com/products/category/${categoryName}`;
+        const response = await axios.get(url);
+        setProducts(response.data);
       } catch (err) {
-        setError(err.message || 'Error al cargar categorías');
+        setError(err.message || 'Error al cargar productos');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchCats();
-  }, []);
+    fetchProducts();
+  }, [categoryName]);
 
-  return { categories, loading, error };
+  return { products, loading, error };
 };
 
-export default useFetchCategories;
+export default useFetchCategoryProducts;
