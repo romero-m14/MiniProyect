@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.luxury-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #2e1065 100%);
+}
+
+.product-card-premium {
+  @apply bg-white border border-slate-100 rounded-xl p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-slate-200/60;
+}
